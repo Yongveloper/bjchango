@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import * as S from './Home.styles';
 import LogoImage from 'images/logo-big.svg';
 
@@ -5,7 +6,9 @@ function Home() {
   return (
     <S.Container>
       <S.Image src={LogoImage} alt="logo" />
-      <button className="button">주문하러가기</button>
+      <Link to="/order">
+        <button className="button">주문하러 가기</button>
+      </Link>
     </S.Container>
   );
 }
