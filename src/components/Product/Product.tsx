@@ -1,18 +1,21 @@
+import { IProduct } from 'api/productsApi';
 import * as S from './Product.styles';
 
-function Product() {
+function Product({ id, name, event, materialType, price }: IProduct) {
+  console.log(id, event, materialType);
+
   return (
     <S.Container>
       <S.Left>
         <S.ProductImage />
         <S.ProductInfo>
-          <S.ProductName>상품명</S.ProductName>
+          <S.ProductName>{name}</S.ProductName>
           <S.OrderQuantity>
-            <S.Button>-</S.Button>1<S.Button>+</S.Button>
+            <S.Button>-</S.Button>0<S.Button>+</S.Button>
           </S.OrderQuantity>
         </S.ProductInfo>
       </S.Left>
-      <S.ProductPrice>상품가격</S.ProductPrice>
+      <S.ProductPrice>{price.toLocaleString()}</S.ProductPrice>
     </S.Container>
   );
 }
