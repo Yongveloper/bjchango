@@ -3,16 +3,19 @@ import Home from 'pages/Home';
 import Order from 'pages/Order';
 import Complete from 'pages/Complete';
 import Error from 'pages/Error';
+import Layout from 'components/common/Layout';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/order" element={<Order />} />
-        <Route path="/complete" element={<Complete />} />
-        <Route path="/error" element={<Error />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/complete" element={<Complete />} />
+          <Route path="/error" element={<Error />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }

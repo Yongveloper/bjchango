@@ -10,4 +10,7 @@ export const theme: DefaultTheme = {
       disabled: '#C1C1C1',
     },
   },
+  device: {
+    mobile: '350px',
+  },
 };
