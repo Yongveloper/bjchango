@@ -6,6 +6,7 @@ import { useGetProductsQuery } from 'api/productsApi';
 import ProductCard from 'components/ProductCard';
 import ProductList from 'components/ProductList';
 import Loader from 'components/Loader';
+import ErrorText from 'components/ErrorText';
 
 function Order() {
   const { data: products, isLoading, isError } = useGetProductsQuery();
@@ -18,9 +19,9 @@ function Order() {
         <S.Logo src={LogoImage} alt="Logo" />
       </S.Header>
       <S.Container>
-        {!isLoading && <Loader />}
-        {/* {isError && <p>데이터를 불러오지 못했습니다.</p>}
-        <ProductList>
+        {/* {!isLoading && <Loader />} */}
+        {!isError && <ErrorText />}
+        {/* <ProductList>
           {products?.map((product) => (
             <Product
               key={product.id}
@@ -31,7 +32,7 @@ function Order() {
               price={product.price}
             />
           ))}
-        </ProductList> */}
+        </ProductList>  */}
       </S.Container>
       <OrderFooter />
     </>
