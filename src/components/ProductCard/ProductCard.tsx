@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IProduct } from 'api/productsApi';
 import * as S from './ProductCard.styles';
@@ -8,9 +7,9 @@ import { RootState } from 'store';
 function ProductCard({ id, name, event, materialType, price }: IProduct) {
   const dispatch = useDispatch();
 
-  const cartItems = useSelector((state: RootState) => state.cart.items);
-
-  const currentQuantity = cartItems[id]?.quantity || 0;
+  const currentQuantity = useSelector(
+    (state: RootState) => state.cart.items[id]?.quantity || 0
+  );
 
   const handleAddToCart = () => {
     dispatch(addToCart({ id, name, event, materialType, price }));
@@ -41,4 +40,4 @@ function ProductCard({ id, name, event, materialType, price }: IProduct) {
   );
 }
 
-export default memo(ProductCard);
+export default ProductCard;
