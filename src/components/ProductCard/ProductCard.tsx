@@ -1,5 +1,5 @@
 import { IProduct } from 'api/productsApi';
-import * as S from './Product.styles';
+import * as S from './ProductCard.styles';
 
 function ProductCard({ id, name, event, materialType, price }: IProduct) {
   console.log(id, event, materialType);
