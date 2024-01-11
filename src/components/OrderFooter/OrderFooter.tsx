@@ -1,10 +1,20 @@
 import { useSelector } from 'react-redux';
 import { RootState } from 'store';
+import { useNavigate } from 'react-router-dom';
 import * as S from './OrderFooter.styles';
+
 function OrderFooter() {
+  const navigate = useNavigate();
   const { totalQuantity, totalPrice } = useSelector(
     (state: RootState) => state.cart
   );
+
+  const handleOrderButtonClick = () => {
+    if (window.confirm('주문하시겠습니까?')) {
+      // 주문API 로직 처리 후
+      navigate('/complete');
+    }
+  };
 
   return (
     <S.Container>
@@ -13,7 +23,12 @@ function OrderFooter() {
         <span>총 가격 : {totalPrice.toLocaleString()}원</span>
       </div>
 
-      <S.OrderButton disabled={totalQuantity === 0}>주문하기</S.OrderButton>
+      <S.OrderButton
+        disabled={totalQuantity === 0}
+        onClick={handleOrderButtonClick}
+      >
+        주문하기
+      </S.OrderButton>
     </S.Container>
   );
 }
