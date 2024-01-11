@@ -1,4 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const slideUp = keyframes`
+  from {
+    transform: translateY(100%);
+  }
+  
+  to {
+    transform: translateY(0);
+  }
+`;
 
 export const Container = styled.div`
   position: fixed;
@@ -13,6 +23,7 @@ export const Container = styled.div`
   border-radius: 20px 20px 0px 0px;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.25);
+  animation: ${slideUp} 0.5s ease;
 
   .order-info-container {
     text-align: right;
@@ -28,7 +39,7 @@ export const OrderButton = styled.button`
   background: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.white};
   font-size: 18px;
-
+  transition: 250ms ease background;
   &:disabled {
     background: ${({ theme }) => theme.colors.grey};
     cursor: not-allowed;
