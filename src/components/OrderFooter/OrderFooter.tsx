@@ -13,7 +13,7 @@ function OrderFooter() {
         <span>총 가격 : {totalPrice}원</span>
       </div>
 
-      <button>주문하기</button>
+      <S.OrderButton disabled={totalQuantity === 0}>주문하기</S.OrderButton>
     </S.Container>
   );
 }

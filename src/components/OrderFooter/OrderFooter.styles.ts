@@ -20,12 +20,17 @@ export const Container = styled.div`
     flex-direction: column;
     gap: 10px;
   }
+`;
 
-  button {
-    width: 100%;
-    height: 47.919px;
-    background: ${({ theme }) => theme.colors.black};
-    color: ${({ theme }) => theme.colors.white};
-    font-size: 18px;
+export const OrderButton = styled.button`
+  width: 100%;
+  height: 47.919px;
+  background: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 18px;
+
+  &:disabled {
+    background: ${({ theme }) => theme.colors.grey};
+    cursor: not-allowed;
   }
 `;
