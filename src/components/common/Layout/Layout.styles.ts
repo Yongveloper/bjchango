@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   max-width: ${({ theme }) => theme.device.mobile};
-  min-height: 100vh;
+  height: 100vh;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 `;

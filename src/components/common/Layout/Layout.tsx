@@ -5,7 +5,7 @@ interface ILayoutProps {
 }
 
 function Layout({ children }: ILayoutProps) {
-  return <S.Container>{children}</S.Container>;
+  return <S.Wrapper>{children}</S.Wrapper>;
 }
 
 export default Layout;
