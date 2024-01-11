@@ -1,7 +1,7 @@
 import { IProduct } from 'api/productsApi';
 import * as S from './Product.styles';
 
-function Product({ id, name, event, materialType, price }: IProduct) {
+function ProductCard({ id, name, event, materialType, price }: IProduct) {
   console.log(id, event, materialType);
 
   return (
@@ -20,4 +20,4 @@ function Product({ id, name, event, materialType, price }: IProduct) {
   );
 }
 
-export default Product;
+export default ProductCard;
