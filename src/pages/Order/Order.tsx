@@ -19,11 +19,11 @@ function Order() {
         <S.Logo src={LogoImage} alt="Logo" />
       </S.Header>
       <S.Container>
-        {/* {!isLoading && <Loader />} */}
-        {!isError && <ErrorText />}
-        {/* <ProductList>
+        {isLoading && <Loader />}
+        {isError && <ErrorText />}
+        <ProductList>
           {products?.map((product) => (
-            <Product
+            <ProductCard
               key={product.id}
               id={product.id}
               name={product.name}
@@ -32,7 +32,7 @@ function Order() {
               price={product.price}
             />
           ))}
-        </ProductList>  */}
+        </ProductList>
       </S.Container>
       <OrderFooter />
     </>

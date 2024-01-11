@@ -6,16 +6,19 @@ function ProductCard({ id, name, event, materialType, price }: IProduct) {
 
   return (
     <S.Container>
-      <S.Left>
-        <S.ProductImage />
+      <S.ProductImage />
+      <S.Right>
+        <S.ProductName>
+          {name}
+          {Boolean(event) && <S.EventTag>이벤트</S.EventTag>}
+        </S.ProductName>
         <S.ProductInfo>
-          <S.ProductName>{name}</S.ProductName>
           <S.OrderQuantity>
             <S.Button>-</S.Button>0<S.Button>+</S.Button>
           </S.OrderQuantity>
+          <S.ProductPrice>{price.toLocaleString()}</S.ProductPrice>
         </S.ProductInfo>
-      </S.Left>
-      <S.ProductPrice>{price.toLocaleString()}</S.ProductPrice>
+      </S.Right>
     </S.Container>
   );
 }
