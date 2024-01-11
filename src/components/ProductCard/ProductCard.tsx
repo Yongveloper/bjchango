@@ -20,7 +20,7 @@ function ProductCard({ id, name, event, materialType, price }: IProduct) {
   };
 
   return (
-    <S.Container>
+    <S.Container $isSelected={currentQuantity > 0}>
       <S.ProductImage />
       <S.Right>
         <S.ProductName>

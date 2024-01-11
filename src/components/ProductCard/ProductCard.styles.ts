@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-export const Container = styled.li`
+export const Container = styled.li<{ $isSelected: boolean }>`
   width: 100%;
   display: flex;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  background: rgba(247, 90, 47, 0.1);
+  background: ${({ theme, $isSelected }) =>
+    $isSelected ? 'rgba(247, 90, 47, 0.1)' : theme.colors.white};
   padding: 9px 12px;
   gap: 8px;
 `;
