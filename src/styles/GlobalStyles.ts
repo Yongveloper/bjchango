@@ -8,6 +8,10 @@ export const GlobalStyles = styled.createGlobalStyle`
     box-sizing: border-box;
   }
 
+  body {
+    background: rgba(181, 181, 181, 0.4);
+  }
+
   button {
     background: none;
     border: none;

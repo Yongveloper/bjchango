@@ -5,4 +5,5 @@ export const Wrapper = styled.div`
   max-width: ${({ theme }) => theme.device.mobile};
   height: 100vh;
   margin: auto;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
