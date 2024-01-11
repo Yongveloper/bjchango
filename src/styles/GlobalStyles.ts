@@ -10,6 +10,7 @@ export const GlobalStyles = styled.createGlobalStyle`
 
   body {
     background: rgba(181, 181, 181, 0.4);
+    font-size: 18px;
   }
 
   button {
