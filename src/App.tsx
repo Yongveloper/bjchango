@@ -3,7 +3,7 @@ import Home from 'pages/Home';
 import Order from 'pages/Order';
 import Complete from 'pages/Complete';
 import Error from 'pages/Error';
-import Layout from 'components/common/Layout';
+import Layout from 'components/Layout';
 
 function App() {
   return (
