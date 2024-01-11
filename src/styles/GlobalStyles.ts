@@ -7,4 +7,8 @@ export const GlobalStyles = styled.createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  button {
+    cursor: pointer;
+  }
 `;
