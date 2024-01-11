@@ -20,5 +20,6 @@ export const GlobalStyles = styled.createGlobalStyle`
     margin: 0;
     outline: none;
     cursor: pointer;
+    font-size: 18px;
   }
 `;
