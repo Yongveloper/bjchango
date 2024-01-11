@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import OrderFooter from 'components/OrderFooter';
 import * as S from './Order.styles';
 import LogoImage from 'images/logo-small.svg';
 import { useGetProductsQuery } from 'api/productsApi';
-import Product from 'components/Product';
+import ProductCard from 'components/ProductCard';
 import ProductList from 'components/ProductList';
+import Loader from 'components/Loader';
 
 function Order() {
   const { data: products, isLoading, isError } = useGetProductsQuery();
@@ -16,14 +18,8 @@ function Order() {
         <S.Logo src={LogoImage} alt="Logo" />
       </S.Header>
       <S.Container>
-        {isLoading && (
-          <p>
-            목록을
-            <br />
-            불러오고 있습니다.
-          </p>
-        )}
-        {isError && <p>데이터를 불러오지 못했습니다.</p>}
+        {!isLoading && <Loader />}
+        {/* {isError && <p>데이터를 불러오지 못했습니다.</p>}
         <ProductList>
           {products?.map((product) => (
             <Product
@@ -35,7 +31,7 @@ function Order() {
               price={product.price}
             />
           ))}
-        </ProductList>
+        </ProductList> */}
       </S.Container>
       <OrderFooter />
     </>
