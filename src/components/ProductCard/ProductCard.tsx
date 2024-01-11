@@ -1,8 +1,24 @@
+import { memo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { IProduct } from 'api/productsApi';
 import * as S from './ProductCard.styles';
+import { addToCart, removeFromCart } from 'slices/cartSlice';
+import { RootState } from 'store';
 
 function ProductCard({ id, name, event, materialType, price }: IProduct) {
-  console.log(id, event, materialType);
+  const dispatch = useDispatch();
+
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+
+  const currentQuantity = cartItems[id]?.quantity || 0;
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ id, name, event, materialType, price }));
+  };
+
+  const handleRemoveFromCart = () => {
+    dispatch(removeFromCart(id));
+  };
 
   return (
     <S.Container>
@@ -14,7 +30,9 @@ function ProductCard({ id, name, event, materialType, price }: IProduct) {
         </S.ProductName>
         <S.ProductInfo>
           <S.OrderQuantity>
-            <S.Button>-</S.Button>0<S.Button>+</S.Button>
+            <S.Button onClick={handleRemoveFromCart}>-</S.Button>
+            {currentQuantity}
+            <S.Button onClick={handleAddToCart}>+</S.Button>
           </S.OrderQuantity>
           <S.ProductPrice>{price.toLocaleString()}</S.ProductPrice>
         </S.ProductInfo>
@@ -23,4 +41,4 @@ function ProductCard({ id, name, event, materialType, price }: IProduct) {
   );
 }
 
-export default ProductCard;
+export default memo(ProductCard);

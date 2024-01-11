@@ -11,8 +11,6 @@ import ErrorText from 'components/ErrorText';
 function Order() {
   const { data: products, isLoading, isError } = useGetProductsQuery();
 
-  console.log(products);
-
   return (
     <>
       <S.Header>
