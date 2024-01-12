@@ -13,7 +13,7 @@ beforeEach(() => {
 });
 
 describe('productsApi 테스트', () => {
-  it('제품 정보를 정확히 불러와야 함', async () => {
+  test('제품 정보를 정확히 불러와야 함', async () => {
     const data = [
       { id: '1', name: 'Product 1', event: 1, materialType: 1, price: 100 },
     ];
