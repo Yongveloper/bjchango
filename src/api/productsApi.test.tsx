@@ -23,7 +23,7 @@ describe('productsApi 테스트', () => {
       wrapper: Wrapper,
     });
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(result.current.data).toEqual(data);
     });
   });
