@@ -1,9 +1,11 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store';
 import { useNavigate } from 'react-router-dom';
 import * as S from './OrderFooter.styles';
+import { resetCart } from 'slices/cartSlice';
 
 function OrderFooter() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { totalQuantity, totalPrice } = useSelector(
     (state: RootState) => state.cart
@@ -12,6 +14,7 @@ function OrderFooter() {
   const handleOrderButtonClick = () => {
     if (window.confirm('주문하시겠습니까?')) {
       // 주문API 로직 처리 후
+      dispatch(resetCart());
       navigate('/complete');
     }
   };
