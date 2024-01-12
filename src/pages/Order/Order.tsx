@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import OrderFooter from 'components/OrderFooter';
 import * as S from './Order.styles';
+import CenteredContainer from 'components/CenteredContainer';
 import LogoImage from 'images/logo-small.svg';
 import { useGetProductsQuery } from 'api/productsApi';
 import ProductCard from 'components/ProductCard';
@@ -16,7 +16,7 @@ function Order() {
       <S.Header>
         <S.Logo src={LogoImage} alt="Logo" />
       </S.Header>
-      <S.Container>
+      <CenteredContainer>
         {isLoading && <Loader />}
         {isError && <ErrorText />}
         {products && (
@@ -33,7 +33,7 @@ function Order() {
             ))}
           </ProductList>
         )}
-      </S.Container>
+      </CenteredContainer>
       <OrderFooter />
     </>
   );

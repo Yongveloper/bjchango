@@ -1,12 +1,8 @@
 import styled from 'styled-components';
+import CenteredContainer from 'components/CenteredContainer';
 
-export const Container = styled.div`
-  height: 100%;
+export const Container = styled(CenteredContainer)`
   background-color: ${({ theme }) => theme.colors.black};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 41px;
 
   .button {
