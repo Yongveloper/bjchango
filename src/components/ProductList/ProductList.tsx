@@ -5,7 +5,7 @@ interface IProductListProps {
 }
 
 function ProductList({ children }: IProductListProps) {
-  return <S.Container>{children}</S.Container>;
+  return <S.ProductListContainer>{children}</S.ProductListContainer>;
 }
 
 export default ProductList;

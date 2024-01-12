@@ -25,7 +25,7 @@ function OrderFooter() {
   };
 
   return (
-    <S.Container>
+    <S.OrderFooterContainer>
       <div className="order-info-container">
         <span>총 수량 : {totalQuantity}개</span>
         <span>총 가격 : {totalPrice.toLocaleString()}원</span>
@@ -37,7 +37,7 @@ function OrderFooter() {
       >
         {isOrdering ? '로딩중...' : '주문하기'}
       </S.OrderButton>
-    </S.Container>
+    </S.OrderFooterContainer>
   );
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.li<{ $isSelected: boolean }>`
+export const ProductCardContainer = styled.li<{ $isSelected: boolean }>`
   width: 100%;
   display: flex;
   border-radius: 10px;

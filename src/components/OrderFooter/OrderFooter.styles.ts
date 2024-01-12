@@ -10,7 +10,7 @@ const slideUp = keyframes`
   }
 `;
 
-export const Container = styled.div`
+export const OrderFooterContainer = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;

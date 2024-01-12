@@ -20,7 +20,7 @@ function ProductCard({ id, name, event, materialType, price }: IProduct) {
   };
 
   return (
-    <S.Container $isSelected={currentQuantity > 0}>
+    <S.ProductCardContainer $isSelected={currentQuantity > 0}>
       <S.ProductImage />
       <S.Right>
         <S.ProductName>
@@ -36,7 +36,7 @@ function ProductCard({ id, name, event, materialType, price }: IProduct) {
           <S.ProductPrice>{price.toLocaleString()}</S.ProductPrice>
         </S.ProductInfo>
       </S.Right>
-    </S.Container>
+    </S.ProductCardContainer>
   );
 }
 

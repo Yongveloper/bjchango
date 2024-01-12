@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import CenteredContainer from 'components/CenteredContainer';
 
-export const Container = styled(CenteredContainer)`
+export const HomeContainer = styled(CenteredContainer)`
   background-color: ${({ theme }) => theme.colors.black};
   gap: 41px;
 
