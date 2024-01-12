@@ -26,6 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:all": "react-scripts test --verbose --watchAll",
     "eject": "react-scripts eject",
     "server": "json-server --watch ./src/db/db.json --port 3001",
     "lint": "eslint . --ext ts,tsx "
