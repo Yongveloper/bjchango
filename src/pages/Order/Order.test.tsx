@@ -38,4 +38,12 @@ describe('Order 컴포넌트 테스트', () => {
     expect(await screen.findByText(/목록을/)).toBeInTheDocument();
     expect(await screen.findByText(/불러오고 있습니다./)).toBeInTheDocument();
   });
+
+  it('에러 발생 시 에러 상태가 표시 되어야 함', async () => {
+    fetchMock.mockReject(() => Promise.reject('Error'));
+    renderWithProviders(<Order />);
+
+    expect(await screen.findByText(/목록을/)).toBeInTheDocument();
+    expect(await screen.findByText(/불러오지 못했습니다./)).toBeInTheDocument();
+  });
 });
