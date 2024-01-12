@@ -1,6 +1,9 @@
+import { useAutoRedirectPage } from 'hooks/useAutoRedirect';
 import * as S from './Error.styles';
 
 function Error() {
+  useAutoRedirectPage('/order', 3000);
+
   return (
     <S.ErrorContainer>
       주문에 실패하였습니다.

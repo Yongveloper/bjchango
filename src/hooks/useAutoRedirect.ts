@@ -10,5 +10,5 @@ export function useAutoRedirectPage(path: string, delay: number) {
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [navigate, delay]);
+  }, []);
 }
