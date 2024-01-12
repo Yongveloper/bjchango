@@ -5,8 +5,10 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from 'styles/GlobalStyles';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { store } from './store';
+import { setupStore } from './store';
 import { theme } from './styles/theme';
+
+const store = setupStore();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
