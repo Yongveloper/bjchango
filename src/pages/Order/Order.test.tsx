@@ -24,4 +24,18 @@ describe('Order 컴포넌트 테스트', () => {
     const logoElement = screen.getByAltText('Logo');
     expect(logoElement).toBeInTheDocument();
   });
+
+  it('로딩 상태일 때 로딩 상태가 표시 되어야 함', async () => {
+    fetchMock.mockResponseOnce(
+      () =>
+        new Promise((resolve) =>
+          setTimeout(() => resolve(JSON.stringify(mockData)), 2000)
+        )
+    );
+
+    renderWithProviders(<Order />);
+
+    expect(await screen.findByText(/목록을/)).toBeInTheDocument();
+    expect(await screen.findByText(/불러오고 있습니다./)).toBeInTheDocument();
+  });
 });
