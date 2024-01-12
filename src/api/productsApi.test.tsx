@@ -1,11 +1,10 @@
 import { renderHook, waitFor } from '@testing-library/react';
-import { useGetProductsQuery } from './productsApi';
+import { productsApi, useGetProductsQuery } from './productsApi';
 import fetchMock from 'jest-fetch-mock';
-import { store } from 'store';
-import { Provider } from 'react-redux';
+import { ApiProvider } from '@reduxjs/toolkit/query/react';
 
 function Wrapper({ children }: { children: React.ReactNode }) {
-  return <Provider store={store}>{children}</Provider>;
+  return <ApiProvider api={productsApi}>{children}</ApiProvider>;
 }
 
 beforeEach(() => {
