@@ -19,18 +19,20 @@ function Order() {
       <S.Container>
         {isLoading && <Loader />}
         {isError && <ErrorText />}
-        <ProductList>
-          {products?.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              event={product.event}
-              materialType={product.materialType}
-              price={product.price}
-            />
-          ))}
-        </ProductList>
+        {products && (
+          <ProductList>
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                event={product.event}
+                materialType={product.materialType}
+                price={product.price}
+              />
+            ))}
+          </ProductList>
+        )}
       </S.Container>
       <OrderFooter />
     </>
