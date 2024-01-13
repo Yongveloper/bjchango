@@ -7,6 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { setupStore } from './store';
 import { theme } from './styles/theme';
+import { BrowserRouter } from 'react-router-dom';
 
 const store = setupStore();
 
@@ -18,7 +19,9 @@ root.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>
