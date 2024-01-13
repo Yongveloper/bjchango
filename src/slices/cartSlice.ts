@@ -1,4 +1,3 @@
-// slices/cartSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IProduct } from 'api/productsApi';
 
