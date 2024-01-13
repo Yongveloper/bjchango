@@ -1,6 +1,6 @@
 import { renderWithProviders } from '__test__/renderWithProviders';
 import ProductCard from './ProductCard';
-import { screen } from '@testing-library/dom';
+import { fireEvent, screen } from '@testing-library/dom';
 
 describe('<ProductCard />', () => {
   test('제품 이미지가 렌더링 되어야 함', () => {
@@ -81,5 +81,43 @@ describe('<ProductCard />', () => {
     const eventTag = screen.queryByText('이벤트');
 
     expect(eventTag).not.toBeInTheDocument();
+  });
+
+  test('"+" 버튼을 클릭하면 수량이 증가해야 함', () => {
+    renderWithProviders(
+      <ProductCard
+        id="1"
+        name="제품이름"
+        event={0}
+        materialType={1}
+        price={10000}
+      />
+    );
+
+    const addButton = screen.getByText('+');
+    fireEvent.click(addButton);
+
+    const quantity = screen.getByText('1');
+    expect(quantity).toBeInTheDocument();
+  });
+
+  test('"-" 버튼을 클릭하면 수량이 감소해야 함', () => {
+    renderWithProviders(
+      <ProductCard
+        id="1"
+        name="제품이름"
+        event={0}
+        materialType={1}
+        price={10000}
+      />
+    );
+
+    const addButton = screen.getByText('+');
+    fireEvent.click(addButton);
+    const subtractButton = screen.getByText('-');
+    fireEvent.click(subtractButton);
+
+    const quantity = screen.getByText('0');
+    expect(quantity).toBeInTheDocument();
   });
 });
