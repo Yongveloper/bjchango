@@ -22,10 +22,8 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<IProduct>) => {
-      if (state.totalQuantity >= 999) {
-        alert('최대 999개까지만 담을 수 있습니다.');
-        return;
-      }
+      if (state.totalQuantity >= 999) return;
+
       const product = action.payload;
       if (!state.items[product.id]) {
         state.items[product.id] = { ...product, quantity: 1 };
