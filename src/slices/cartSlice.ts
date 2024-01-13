@@ -6,7 +6,7 @@ interface ICartItem extends IProduct {
   quantity: number;
 }
 
-interface ICartState {
+export interface ICartState {
   items: Record<string, ICartItem>;
   totalQuantity: number;
   totalPrice: number;
