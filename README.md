@@ -11,6 +11,26 @@
 - ESLint
 - Prettier
 
+## Commit 및 Git Branch 컨벤션
+
+### Commit
+
+```
+- feat: 새로운 기능 추가
+- chore: 코드의 변경이 없는 경우 (패키지 설치 및 설정)
+- refactor: 코드 개선
+- test: 테스트 코드 관련
+- fix: 버그 수정
+- doc: 문서 업데이트
+```
+
+### Git Branch
+
+- 페이지 별로 `feature/페이지이름` 생성
+- 테스트 코드 파일 마다 `test/테스트 진행하는 파일 이름` 생성
+- 각 작업이 완료된 branch들은 `develop` branch에서 merge 후 뻗어 나감
+- 최종적으로 `main` branch에 merge
+
 ## 📖 프로젝트 실행 방법
 
 #### 1. 패키지 설치
