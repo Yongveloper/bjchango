@@ -1,6 +1,8 @@
+import 'jest-styled-components';
 import { renderWithProviders } from '__test__/renderWithProviders';
 import ProductCard from './ProductCard';
 import { fireEvent, screen } from '@testing-library/dom';
+import { ProductCardContainer } from './ProductCard.styles';
 
 describe('<ProductCard />', () => {
   test('제품 이미지가 렌더링 되어야 함', () => {
@@ -119,5 +121,20 @@ describe('<ProductCard />', () => {
 
     const quantity = screen.getByText('0');
     expect(quantity).toBeInTheDocument();
+  });
+
+  test('ProductCardContainer의 $isSelected prop에 따라 배경색이 변경되어야 함', () => {
+    // $isSelected가 true일 때 렌더링
+    const { container, rerender } = renderWithProviders(
+      <ProductCardContainer $isSelected={true} />
+    );
+    expect(container.firstChild).toHaveStyleRule(
+      'background',
+      'rgba(247, 90, 47, 0.1)'
+    );
+
+    // $isSelected가 false일 때 렌더링
+    rerender(<ProductCardContainer $isSelected={false} />);
+    expect(container.firstChild).toHaveStyleRule('background', '#fff');
   });
 });
