@@ -2,6 +2,7 @@ import cartReducer, {
   ICartState,
   addToCart,
   removeFromCart,
+  resetCart,
 } from 'slices/cartSlice';
 
 describe('cartSlice 테스트', () => {
@@ -82,5 +83,22 @@ describe('cartSlice 테스트', () => {
     };
 
     expect(cartReducer(state, removeFromCart('1'))).toEqual(expectedState);
+  });
+
+  test('장바구니가 정상적으로 초기화 되어야 함', () => {
+    const product = {
+      id: '1',
+      name: 'product1',
+      event: 0,
+      materialType: 1,
+      price: 100,
+    };
+    const state = {
+      items: { '1': { ...product, quantity: 2 } },
+      totalQuantity: 2,
+      totalPrice: 200,
+    };
+
+    expect(cartReducer(state, resetCart())).toEqual(initialState);
   });
 });
