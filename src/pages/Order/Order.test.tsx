@@ -57,4 +57,13 @@ describe('<Order />', () => {
 
     expect(productCardElement).toBeInTheDocument();
   });
+
+  test('OrderFooter가 정상적으로 렌더링 되어야 함', () => {
+    fetchMock.mockResponseOnce(JSON.stringify(mockData));
+    renderWithProviders(<Order />);
+
+    const orderFooterElement = screen.getByText('주문하기');
+
+    expect(orderFooterElement).toBeInTheDocument();
+  });
 });
