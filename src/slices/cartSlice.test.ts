@@ -101,4 +101,47 @@ describe('cartSlice 테스트', () => {
 
     expect(cartReducer(state, resetCart())).toEqual(initialState);
   });
+
+  test('장바구니에 담을 수 있는 상품의 최대 수량은 999개까지 가능함', () => {
+    const product = {
+      id: '1',
+      name: 'product1',
+      event: 0,
+      materialType: 1,
+      price: 100,
+    };
+    const state = {
+      items: { '1': { ...product, quantity: 999 } },
+      totalQuantity: 999,
+      totalPrice: 99900,
+    };
+
+    expect(cartReducer(state, addToCart(product))).toEqual(state);
+  });
+
+  test('장바구니의 수량은 음수가 될 수 없어야 함', () => {
+    const product = {
+      id: '1',
+      name: 'product1',
+      event: 0,
+      materialType: 1,
+      price: 100,
+    };
+    const state = {
+      items: { '1': { ...product, quantity: 1 } },
+      totalQuantity: 1,
+      totalPrice: 100,
+    };
+    const expectedState = {
+      items: {},
+      totalQuantity: 0,
+      totalPrice: 0,
+    };
+
+    let newState = cartReducer(state, removeFromCart('1'));
+    expect(newState).toEqual(expectedState);
+
+    newState = cartReducer(newState, removeFromCart('1'));
+    expect(newState).toEqual(expectedState);
+  });
 });
