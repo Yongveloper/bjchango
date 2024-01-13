@@ -3,7 +3,7 @@ import Order from './Order';
 import { renderWithProviders } from '__test__/renderWithProviders';
 import fetchMock from 'jest-fetch-mock';
 
-describe('Order 컴포넌트 테스트', () => {
+describe('<Order />', () => {
   const mockData = [
     {
       id: 1,
