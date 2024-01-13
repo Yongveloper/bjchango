@@ -2,6 +2,7 @@ import { renderWithProviders } from '__test__/renderWithProviders';
 import OrderFooter from './OrderFooter';
 import { ICartState } from 'slices/cartSlice';
 import { fireEvent } from '@testing-library/dom';
+import { act } from '@testing-library/react';
 
 jest.useFakeTimers();
 
@@ -93,7 +94,10 @@ describe('<OrderFooter />', () => {
     const { getByText } = renderOrderFooter(initialCart);
     const orderButton = getByText('주문하기');
     fireEvent.click(orderButton);
-    jest.advanceTimersByTime(1500);
+
+    act(() => {
+      jest.advanceTimersByTime(1500);
+    });
 
     expect(window.location.pathname).toBe('/complete');
   });

@@ -1,6 +1,7 @@
 import { renderWithProviders } from '__test__/renderWithProviders';
 import Complete from './Complete';
 import { screen } from '@testing-library/dom';
+import { act } from '@testing-library/react';
 
 jest.useFakeTimers();
 
@@ -24,7 +25,9 @@ describe('<Complete />', () => {
   test('페이지 진입 후 3초 뒤에 주문 페이지로 이동해야 함', () => {
     renderWithProviders(<Complete />);
 
-    jest.advanceTimersByTime(3000);
+    act(() => {
+      jest.advanceTimersByTime(3000);
+    });
 
     expect(window.location.pathname).toBe('/order');
   });
