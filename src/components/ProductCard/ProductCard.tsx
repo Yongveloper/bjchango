@@ -21,7 +21,7 @@ function ProductCard({ id, name, event, materialType, price }: IProduct) {
 
   return (
     <S.ProductCardContainer $isSelected={currentQuantity > 0}>
-      <S.ProductImage />
+      <S.ProductImage data-testid="product-img" />
       <S.Right>
         <S.ProductName>
           {name}
