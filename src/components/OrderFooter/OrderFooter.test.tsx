@@ -36,4 +36,16 @@ describe('<OrderFooter />', () => {
 
     expect(orderPrice).toBeInTheDocument();
   });
+
+  test('주문 수량이 0일 때 주문하기 버튼이 비활성화 되어야 함', () => {
+    const initialCart = {
+      items: {},
+      totalQuantity: 0,
+      totalPrice: 0,
+    };
+
+    const { getByText } = renderOrderFooter(initialCart);
+    const orderButton = getByText('주문하기');
+    expect(orderButton).toBeDisabled();
+  });
 });
