@@ -1,4 +1,8 @@
-import cartReducer, { ICartState, addToCart } from 'slices/cartSlice';
+import cartReducer, {
+  ICartState,
+  addToCart,
+  removeFromCart,
+} from 'slices/cartSlice';
 
 describe('cartSlice 테스트', () => {
   let initialState: ICartState;
@@ -15,7 +19,7 @@ describe('cartSlice 테스트', () => {
     expect(cartReducer(undefined, { type: 'unknown' })).toEqual(initialState);
   });
 
-  test('해당 상품이 장바구니에 없으면 장바구니에 상품이 추가되어야 함', () => {
+  test('장바구니에 상품이 잘 담겨야 함', () => {
     const product = {
       id: '1',
       name: 'product1',
@@ -34,7 +38,7 @@ describe('cartSlice 테스트', () => {
     expect(result).toEqual(expectedState);
   });
 
-  test('해당 상품이 장바구니에 있으면 수량이 1 증가해야 함', () => {
+  test('해당 상품이 장바구니에 이미 있으면 수량이 1 증가해야 함', () => {
     const product = {
       id: '1',
       name: 'product1',
@@ -56,5 +60,27 @@ describe('cartSlice 테스트', () => {
     const result = cartReducer(state, addToCart(product));
 
     expect(result).toEqual(expectedState);
+  });
+
+  test('장바구니 수량 감소 기능이 정상적으로 작동해야 함', () => {
+    const product = {
+      id: '1',
+      name: 'product1',
+      event: 0,
+      materialType: 1,
+      price: 100,
+    };
+    const state = {
+      items: { '1': { ...product, quantity: 2 } },
+      totalQuantity: 2,
+      totalPrice: 200,
+    };
+    const expectedState = {
+      items: { '1': { ...product, quantity: 1 } },
+      totalQuantity: 1,
+      totalPrice: 100,
+    };
+
+    expect(cartReducer(state, removeFromCart('1'))).toEqual(expectedState);
   });
 });
