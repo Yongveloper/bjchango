@@ -10,4 +10,12 @@ describe('<Complete />', () => {
 
     expect(checkIcon).toBeInTheDocument();
   });
+
+  test("'주문이 완료되었습니다.' 텍스트가 렌더링 되어야 함", () => {
+    renderWithProviders(<Complete />);
+
+    const completeElement = screen.getByText('주문이 완료되었습니다.');
+
+    expect(completeElement).toBeInTheDocument();
+  });
 });
