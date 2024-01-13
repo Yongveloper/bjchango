@@ -1,7 +1,9 @@
 import { renderWithProviders } from '__test__/renderWithProviders';
 import OrderFooter from './OrderFooter';
 import { ICartState } from 'slices/cartSlice';
-import { fireEvent, waitFor } from '@testing-library/dom';
+import { fireEvent } from '@testing-library/dom';
+
+jest.useFakeTimers();
 
 const renderOrderFooter = (initialCart: ICartState) => {
   return renderWithProviders(<OrderFooter />, {
@@ -79,7 +81,7 @@ describe('<OrderFooter />', () => {
     expect(loadingButton).toBeInTheDocument();
   });
 
-  test('주문하기 버튼이 클릭되면 로딩 이후 주문 성공 페이지로 이동해야 함', async () => {
+  test('주문하기 버튼이 클릭되면 로딩 이후 주문 성공 페이지로 이동해야 함', () => {
     window.confirm = jest.fn(() => true);
 
     const initialCart = {
@@ -91,12 +93,8 @@ describe('<OrderFooter />', () => {
     const { getByText } = renderOrderFooter(initialCart);
     const orderButton = getByText('주문하기');
     fireEvent.click(orderButton);
+    jest.advanceTimersByTime(1500);
 
-    await waitFor(
-      () => {
-        expect(window.location.pathname).toBe('/complete');
-      },
-      { timeout: 1500 }
-    );
+    expect(window.location.pathname).toBe('/complete');
   });
 });
