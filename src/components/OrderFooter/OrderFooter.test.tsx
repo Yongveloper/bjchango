@@ -48,4 +48,16 @@ describe('<OrderFooter />', () => {
     const orderButton = getByText('주문하기');
     expect(orderButton).toBeDisabled();
   });
+
+  test('주문 수량이 1개이상일 때 주문하기 버튼이 활성화 되어야 함', () => {
+    const initialCart = {
+      items: {},
+      totalQuantity: 1,
+      totalPrice: 10000,
+    };
+
+    const { getByText } = renderOrderFooter(initialCart);
+    const orderButton = getByText('주문하기');
+    expect(orderButton).not.toBeDisabled();
+  });
 });
