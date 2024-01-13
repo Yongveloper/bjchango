@@ -66,4 +66,19 @@ describe('<App />', () => {
 
     expect(completeText).toBeInTheDocument();
   });
+
+  test('/error 경로에서는 <Error /> 컴포넌트가 렌더링 되어야 함', async () => {
+    const route = '/error';
+    render(
+      <MemoryRouter initialEntries={[route]}>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </MemoryRouter>
+    );
+
+    expect(
+      await screen.findByText(/주문에 실패하였습니다./)
+    ).toBeInTheDocument();
+  });
 });
