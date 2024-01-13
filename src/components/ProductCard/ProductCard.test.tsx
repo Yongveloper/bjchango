@@ -50,4 +50,36 @@ describe('<ProductCard />', () => {
 
     expect(productPrice).toBeInTheDocument();
   });
+
+  test('이벤트일 때 이벤트 태그가 렌더링 되어야 함', () => {
+    renderWithProviders(
+      <ProductCard
+        id="1"
+        name="제품이름"
+        event={1}
+        materialType={1}
+        price={10000}
+      />
+    );
+
+    const eventTag = screen.getByText('이벤트');
+
+    expect(eventTag).toBeInTheDocument();
+  });
+
+  test('이벤트가 아닐 때 이벤트 태그가 렌더링 되지 않아야 함', () => {
+    renderWithProviders(
+      <ProductCard
+        id="1"
+        name="제품이름"
+        event={0}
+        materialType={1}
+        price={10000}
+      />
+    );
+
+    const eventTag = screen.queryByText('이벤트');
+
+    expect(eventTag).not.toBeInTheDocument();
+  });
 });
