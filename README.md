@@ -70,8 +70,6 @@ yarn test . --coverage
 - 주문하러 가기 클릭시 '/order' 페이지로 이동
   - `Link`태그 사용
 
-![Alt text](image.png)
-
 ### Order Page
 
 ![order](https://github.com/Yongveloper/minesweeper/assets/64254228/10c79d95-b3d5-4248-a968-2d8ba6ed9df8)
