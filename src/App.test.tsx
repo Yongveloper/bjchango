@@ -47,8 +47,23 @@ describe('<App />', () => {
       </MemoryRouter>
     );
 
-    const headerLogo = screen.getByAltText('Logo');
+    const orderButton = screen.getByText('주문하기');
 
-    expect(headerLogo).toBeInTheDocument();
+    expect(orderButton).toBeInTheDocument();
+  });
+
+  test('/complete 경로에서는 <Complete /> 컴포넌트가 렌더링 되어야 함', () => {
+    const route = '/complete';
+    render(
+      <MemoryRouter initialEntries={[route]}>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </MemoryRouter>
+    );
+
+    const completeText = screen.getByText('주문이 완료되었습니다.');
+
+    expect(completeText).toBeInTheDocument();
   });
 });
