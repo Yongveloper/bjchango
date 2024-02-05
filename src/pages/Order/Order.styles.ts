@@ -9,5 +9,3 @@ export const Header = styled.header`
   padding: 12px;
   background-color: ${({ theme }) => theme.colors.black};
 `;
-
-export const Logo = styled.img``;

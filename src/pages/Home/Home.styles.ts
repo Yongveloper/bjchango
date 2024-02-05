@@ -13,5 +13,3 @@ export const HomeContainer = styled(CenteredContainer)`
     font-size: 25px;
   }
 `;
-
-export const Logo = styled.img``;
