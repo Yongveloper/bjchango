@@ -1,7 +1,7 @@
 import OrderFooter from 'components/OrderFooter';
 import * as S from './Order.styles';
 import CenteredContainer from 'components/CenteredContainer';
-import LogoImage from 'images/logo-small.svg';
+import { ReactComponent as LogoImage } from 'images/logo-small.svg';
 import { useGetProductsQuery } from 'api/productsApi';
 import ProductCard from 'components/ProductCard';
 import ProductList from 'components/ProductList';
@@ -14,7 +14,7 @@ function Order() {
   return (
     <>
       <S.Header>
-        <S.Logo src={LogoImage} alt="Logo" />
+        <LogoImage data-testid="logo" />
       </S.Header>
       <CenteredContainer>
         {isLoading && <Loader />}

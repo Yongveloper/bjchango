@@ -18,7 +18,7 @@ describe('<App />', () => {
       </MemoryRouter>
     );
 
-    const logo = screen.getByAltText('logo');
+    const logo = screen.getByTestId('logo');
 
     expect(logo).toBeInTheDocument();
   });

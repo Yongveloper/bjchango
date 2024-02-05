@@ -2,13 +2,13 @@ import { useAutoRedirectPage } from 'hooks/useAutoRedirect';
 import * as S from './Error.styles';
 
 function Error() {
-  useAutoRedirectPage('/order', 3000);
+  const seconds = useAutoRedirectPage('/order', 3000);
 
   return (
     <S.ErrorContainer>
-      주문에 실패하였습니다.
+      <S.Text>주문에 실패하였습니다.</S.Text>
       <br />
-      다시 시도해주세요.
+      <S.Text>{seconds}초 후에 주문 페이지로 이동합니다.</S.Text>
     </S.ErrorContainer>
   );
 }

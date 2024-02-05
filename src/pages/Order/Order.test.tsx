@@ -21,7 +21,7 @@ describe('<Order />', () => {
   test('Header가 정상적으로 렌더링 되어야 함', () => {
     fetchMock.mockResponseOnce(JSON.stringify(mockData));
     renderWithProviders(<Order />);
-    const logoElement = screen.getByAltText('Logo');
+    const logoElement = screen.getByTestId('logo');
     expect(logoElement).toBeInTheDocument();
   });
 
