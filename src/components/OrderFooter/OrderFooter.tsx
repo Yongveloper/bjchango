@@ -28,7 +28,7 @@ function OrderFooter() {
     <S.OrderFooterContainer>
       <div className="order-info-container">
         <span>총 수량 : {totalQuantity}개</span>
-        <span>총 가격 : {totalPrice.toLocaleString()}원</span>
+        <span>총 가격 : {totalPrice.toLocaleString('ko-KR')}원</span>
       </div>
 
       <S.OrderButton

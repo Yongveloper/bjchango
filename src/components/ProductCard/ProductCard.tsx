@@ -37,7 +37,7 @@ function ProductCard({ id, name, event, materialType, price }: IProduct) {
             <S.Button onClick={handleAddToCart}>+</S.Button>
           </S.OrderQuantity>
           <S.ProductPrice data-testid="product-price">
-            {price.toLocaleString()}
+            {price.toLocaleString('ko-KR')}
           </S.ProductPrice>
         </S.ProductInfo>
       </S.Right>
