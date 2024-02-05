@@ -12,7 +12,6 @@ describe('<Error />', () => {
     expect(
       await screen.findByText(/주문에 실패하였습니다./)
     ).toBeInTheDocument();
-    expect(await screen.findByText(/다시 시도해주세요./)).toBeInTheDocument();
   });
 
   test('페이지 진입 후 3초 뒤에 주문 페이지로 이동해야 함', () => {

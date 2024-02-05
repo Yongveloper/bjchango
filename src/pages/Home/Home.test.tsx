@@ -6,7 +6,7 @@ describe('<Home />', () => {
   test('로고 이미지가 정상적으로 렌더링되는지 확인', () => {
     renderWithProviders(<Home />);
 
-    const logoImage = screen.getByAltText('logo');
+    const logoImage = screen.getByTestId('logo');
 
     expect(logoImage).toBeInTheDocument();
   });

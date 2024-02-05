@@ -14,7 +14,7 @@ function Order() {
   return (
     <>
       <S.Header>
-        <LogoImage />
+        <LogoImage data-testid="logo" />
       </S.Header>
       <CenteredContainer>
         {isLoading && <Loader />}

@@ -5,7 +5,7 @@ import { ReactComponent as LogoImage } from 'images/logo-big.svg';
 function Home() {
   return (
     <S.HomeContainer>
-      <LogoImage />
+      <LogoImage data-testid="logo" />
       <Link to="/order">
         <button className="button">주문하러 가기</button>
       </Link>
