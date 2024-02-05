@@ -7,14 +7,26 @@ jest.useFakeTimers();
 
 describe('useAutoRedirectPage', () => {
   it('지정된 시간 지연 후 주어진 경로로 리다이렉트해야 함', () => {
-    renderHook(() => useAutoRedirectPage('/test', 3000), {
+    const { result } = renderHook(() => useAutoRedirectPage('/test', 3000), {
       wrapper: BrowserRouter,
     });
 
     expect(window.location.pathname).toBe('/');
 
     act(() => {
-      jest.advanceTimersByTime(3000);
+      jest.advanceTimersByTime(1000);
+    });
+
+    expect(result.current).toBe(2);
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
+    expect(result.current).toBe(1);
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
     });
 
     expect(window.location.pathname).toBe('/test');
